@@ -155,6 +155,9 @@ php artisan serve
 
 ![App Screenshot](https://github.com/EbenEzerManurung/sistem-informasi-permintaan-produk-dengan-label-qr-code_laravel-8-with-mysql/blob/main/screenshot/ss_cetak%20produk%20keluar.PNG?raw=true)
 
+## License
+
+[MIT license](https://opensource.org/licenses/MIT).
 
 
 
