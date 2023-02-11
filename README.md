@@ -3,8 +3,8 @@
 
 
 
-Using HTML,CSS and Javascript
-Toko kecil merupakan sebuah website yang digunakan untuk mengelola transaksi pada sebuah toko. Aplikasi ini dibuat menggunakan Laravel 8 dan minimal PHP 7.4 olehkarena itu jika pada saat proses instalasi terdapat error karena versi dari PHP yang tidak support.
+Using Laravel framework and Mysql database
+Aplikasi ini dibuat menggunakan Laravel 8 dan minimal PHP 7.4 olehkarena itu jika pada saat proses instalasi terdapat error karena versi dari PHP yang tidak support.
 
 ### Beberapa Fitur yang tersedia:
 - Kelola akun user & hak akses
