@@ -44,14 +44,14 @@ Route::patch('/produk_masuk-update/{id}', 'produk_masukController@update');
 
  Route::get('/', 'AuthManageController@viewLogin')->name('login');
  Route::get('/login', 'AuthManageController@viewLogin')->name('login');
-Route::post('/verify_login', 'AuthManageController@verifyLogin');
-Route::post('/first_account', 'UserManageController@firstAccount');
+ Route::post('/verify_login', 'AuthManageController@verifyLogin');
+ Route::post('/first_account', 'UserManageController@firstAccount');
 
 Route::group(['middleware' => ['auth', 'checkRole:admin,produksi,ppic,warehousefg']], function(){
 	Route::get('/logout', 'AuthManageController@logoutProcess');
 	Route::get('/dashboard', 'ViewManageController@viewDashboard');
 	// ------------------------- Fitur Cari -------------------------
-	 Route::get('/search/{word}', 'SearchManageController@searchPage');
+	//  Route::get('/search/{word}', 'SearchManageController@searchPage');
 	// ------------------------- Profil -------------------------
 	Route::get('/profile', 'UserManageController@viewAccount');
 	Route::post('/profile/update/data', 'ProfileManageController@changeData');
@@ -73,7 +73,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,produksi,ppic,warehousef
 	Route::get('/access/sidebar', 'AccessManageController@sidebarRefresh');
 	// -------------------------  -------------------------
 	
-
+     //chart
+     Route::resource('chart', ChartController::class);
 
 //route permintaan produk
    Route::get('/permintaan_produk', 'permintaan_produkController@index' );
@@ -91,20 +92,20 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,produksi,ppic,warehousef
 			
 	//produk_masuk
 
- Route::resource('produk_masuk', Produk_masukController::class);
+//  Route::resource('produk_masuk', Produk_masukController::class);
 	// Route::resource('produk_masuk', Produk_masukController::class);
 	Route::resource('produkmasuk', ProdukmasukController::class);
 	Route::get('/tambah_produk', 'ProdukmasukController@tambah');
 
 
 	// Route::get('/produk_masuk', 'ProdukmasukController@home');
-	   Route::get('/produk_masuk/update/{id}',[Produk_masukController::class,'patch']);
-		   Route::patch('/produk_masuk/update/{id}',[Produk_masukController::class,'patch']);
-                 Route::get('produk_masuk/show/{id_produkmasuk}',[Produk_masukControllerr::class,'show']);
-                 Route::get('/produk_masuk/update/{id_produkmasuk}',[Produk_masukController::class,'update']);
+// 	   Route::get('/produk_masuk/update/{id}',[Produk_masukController::class,'patch']);
+// 		   Route::patch('/produk_masuk/update/{id}',[Produk_masukController::class,'patch']);
+//                  Route::get('produk_masuk/show/{id_produkmasuk}',[Produk_masukControllerr::class,'show']);
+//                  Route::get('/produk_masuk/update/{id_produkmasuk}',[Produk_masukController::class,'update']);
 
-                 Route::post('/produk_masuk/delete-selected', [ProdukController::class, 'deleteSelectedMasuk'])->name('produk.delete_selected');
-                 //validasi
+//                  Route::post('/produk_masuk/delete-selected', [ProdukController::class, 'deleteSelectedMasuk'])->name('produk.delete_selected');
+//                  //validasi
                  Route::resource('validasi', ValidasiController::class);
 
                  //mencetak label qrcode
@@ -115,8 +116,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,produksi,ppic,warehousef
 		   Route::get('cetak_labelpdf', 'CetakQrController@exportcetaklabel')->name('cetakPDF.labelpdf');
 		   Route::get('/cetak_all', 'pdfController@generatePdf')->name('cetak_labelAll.all');
 		   Route::get('/print/{id}', "pdfController@generatePdfOne")->name('cetak_label.one');
-		   Route::get('/exportProductMasuk/{product_id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk');
-		//   Route::post('/cetak_labelpdf', [CetakQrController::class, 'exportcetaklabel'])->name('cetakPDF.labelpdf');
+		//    Route::get('/exportProductMasuk/{product_id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk');
+		
+		   //   Route::post('/cetak_labelpdf', [CetakQrController::class, 'exportcetaklabel'])->name('cetakPDF.labelpdf');
 
 		//   Route::group( function () {
 		// 	Route::get('/print', 'Commodities\PdfController@generatePdf')->name('print');

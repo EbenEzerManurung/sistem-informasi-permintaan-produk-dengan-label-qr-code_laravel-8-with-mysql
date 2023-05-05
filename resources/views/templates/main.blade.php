@@ -23,7 +23,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     @yield('css')
     <!-- End-CSS -->
-
+    <!-- PWA  -->
+    <meta name="theme-color" content="#6777ef"/>
+    <link rel="apple-touch-icon" href="{{ asset('RMA-logo.jpg') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
   </head>
   <body>
     <div class="container-scroller">
@@ -361,6 +364,22 @@
       });
     </script>
     @yield('script')
+    <script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
+<script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
     <!-- End-Javascript -->
   </body>
 </html>

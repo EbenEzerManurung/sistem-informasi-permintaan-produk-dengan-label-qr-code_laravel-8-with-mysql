@@ -1,0 +1,17 @@
+{
+    "name": "Sistem informasi permintaan produk dengan label QR Code",
+    "short_name": "LPT",
+    "start_url": "/index.php",
+    "background_color": "#54f0a2",
+    "description": "Tutorial of Laravel Package",
+    "display": "fullscreen",
+    "theme_color": "#54f0a2",
+    "icons": [
+        {
+            "src": "RMA-logo.jpg",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

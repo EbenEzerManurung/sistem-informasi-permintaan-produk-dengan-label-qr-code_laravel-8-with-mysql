@@ -10,7 +10,7 @@ class Data_produkController extends Controller
 {
     // public function index(Request $request)
     // {
-    //     $list_produk = Data_produk::all();
+    //     $lis`t_produk = Data_produk::all();
        
     //     if($request->ajax()){
     //         return datatables()->of($list_produk)

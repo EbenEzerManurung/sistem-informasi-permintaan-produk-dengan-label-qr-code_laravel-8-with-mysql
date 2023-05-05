@@ -17,7 +17,11 @@
     <link rel="stylesheet" href="{{ asset('css/login/style.css') }}">
     <link rel="shortcut icon" href="{{ asset('images/RMA-logo.jpg') }}" type="image/x-icon"/>
     <!-- End-CSS -->
-
+   
+<!-- PWA  -->
+<meta name="theme-color" content="#56e890"/>
+<link rel="apple-touch-icon" href="{{ asset('RMA-logo.jpg') }}">
+<link rel="manifest" href="{{ asset('/manifest.json') }}">
   </head>
   <body>
     <div class="container-scroller">
@@ -230,6 +234,14 @@
                                                           </svg>`;
       }
   }
+</script>
+<script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
 </script>
 
   </body>

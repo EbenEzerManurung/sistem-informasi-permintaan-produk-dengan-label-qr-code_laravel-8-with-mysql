@@ -24,7 +24,10 @@
   
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 
-
+<!-- PWA  -->
+<meta name="theme-color" content="#56e890"/>
+<link rel="apple-touch-icon" href="{{ asset('RMA-logo.jpg') }}">
+<link rel="manifest" href="{{ asset('/manifest.json') }}">
     <!-- AKHIR STYLE CSS -->
   </head>
     
@@ -172,6 +175,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.js"
     integrity="sha256-siqh9650JHbYFKyZeTEAhq+3jvkFCG8Iz+MHdr9eKrw=" crossorigin="anonymous"></script>
     </script>
+     <script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
 @endsection
 </html>
 

@@ -2,6 +2,10 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/manage_account/access/style.css') }}">
 
+<!-- PWA  -->
+<meta name="theme-color" content="#56e890"/>
+<link rel="apple-touch-icon" href="{{ asset('RMA-logo.jpg') }}">
+<link rel="manifest" href="{{ asset('/manifest.json') }}">
 @endsection
 @section('content')
 <div class="row page-title-header">
@@ -241,5 +245,12 @@
       });
     }
   });
+  <script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
 </script>
 @endsection

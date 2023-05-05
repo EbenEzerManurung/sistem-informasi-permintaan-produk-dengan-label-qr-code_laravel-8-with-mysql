@@ -16,6 +16,10 @@
                                 text-align: center;
                             }
                         </style>
+                      <!-- PWA  -->
+<meta name="theme-color" content="#56e890"/>
+<link rel="apple-touch-icon" href="{{ asset('RMA-logo.jpg') }}">
+<link rel="manifest" href="{{ asset('/manifest.json') }}">
                     </head>
                     <body>
                         <div class="card-body">
@@ -67,6 +71,13 @@
    
     </table>
 
-    
+    <script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
 </body>
 </html>

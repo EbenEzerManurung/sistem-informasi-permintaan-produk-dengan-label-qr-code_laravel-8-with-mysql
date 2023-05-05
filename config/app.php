@@ -169,6 +169,9 @@ return [
         Milon\Barcode\BarcodeServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Ladumor\LaravelPwa\PWAServiceProvider::class,
+
+
 
         /*
          * Application Service Providers...
@@ -237,6 +240,7 @@ return [
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
     ],
 
 ];

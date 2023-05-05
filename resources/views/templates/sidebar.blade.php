@@ -1,4 +1,8 @@
 <a href="#" class="nav-link"><br>
+  <!-- PWA  -->
+<meta name="theme-color" content="#6777ef"/>
+<link rel="apple-touch-icon" href="{{ asset('RMA-logo.jpg') }}">
+<link rel="manifest" href="{{ asset('/manifest.json') }}">
   </a>
 <ul class="nav">
   <li class="nav-item nav-profile"><a href="#" class="nav-link">
@@ -30,7 +34,7 @@
 
   @php
   $access = \App\Acces::where('user', auth()->user()->id)
-  ->first();
+  ->first();s
   @endphp
 
   @if($access->kelola_akun == 1)
@@ -99,6 +103,14 @@
       <span class="menu-title"> Mengelola Laporan produkkeluar</span>
     </a>
   </li>
+  <script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
   @endif
  
 

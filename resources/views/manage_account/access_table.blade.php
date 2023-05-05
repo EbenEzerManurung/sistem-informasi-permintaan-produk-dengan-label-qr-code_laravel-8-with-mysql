@@ -1,4 +1,8 @@
 @foreach($access as $user)
+<!-- PWA  -->
+<meta name="theme-color" content="#56e890"/>
+<link rel="apple-touch-icon" href="{{ asset('RMA-logo.jpg') }}">
+<link rel="manifest" href="{{ asset('/manifest.json') }}">
 <tr>
   <td>
     <span class="d-flex justify-content-start align-items-center">
@@ -102,5 +106,12 @@
     @endif
   </td>
 </tr>
- 
+<script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
 @endforeach
